@@ -1,0 +1,226 @@
+/* Подключение шрифтов через CSS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Play:wght@400;700&display=swap');
+
+:root {
+  --font-family: 'Play', sans-serif;
+  --second-family: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-weight: 400;
+  background:
+    linear-gradient(178.73deg, #2787f52e -17.53%, #a393f52e 131.74%),
+    linear-gradient(180deg, #000, #272424b3);
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn {
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.loading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  height: 100%;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 20C2 29.941 10.059 38 20 38C29.941 38 38 29.941 38 20C38 10.059 29.941 2 20 2C17.6755 2 15.454 2.4405 13.414 3.243' stroke='%239873FF' stroke-width='4' stroke-miterlimit='10' stroke-linecap='round' /%3E%3C/svg%3E");
+  animation: 2s infinite rotate;
+}
+
+.loading_gray::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6067 4.3934L23.2495 6.75042C21.1383 4.63917 18.2217 3.33333 15 3.33333C8.55668 3.33333 3.33333 8.55668 3.33333 15C3.33333 21.4433 8.55668 26.6667 15 26.6667C21.4433 26.6667 26.6667 21.4433 26.6667 15H30C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C19.1422 0 22.8922 1.67893 25.6067 4.3934Z' fill='white' /%3E%3C/svg%3E");
+}
+
+.title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 120%;
+  color: #fff;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 40px;
+  max-width: 132px;
+  width: 100%;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  padding: 16px 16px 16px 52px;
+  width: 100%;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: rgb(0, 0, 0);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input:focus-visible {
+  border-color: #b4a9ff;
+}
+
+@media (any-hover: hover) {
+  .input:hover {
+    border-color: #b4a9ff;
+  }
+}
+
+.input:active {
+  border-color: #786bc9;
+}
+
+.input_error {
+  border-color: #ff7575;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.block {
+  position: relative;
+  margin: auto;
+  border-radius: 24px;
+  padding: 64px 40px;
+  max-width: 420px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.close {
+  position: absolute;
+  right: -72px;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  outline: none;
+  overflow-y: auto;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.close::before,
+.close::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  transform-origin: center;
+}
+
+.close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+@media (max-width: 1000px) {
+  .container {
+    padding-left: 18.5px;
+    padding-right: 18.5px;
+  }
+}
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 24px;
+    line-height: 133%;
+  }
+
+  .block {
+    padding: 64px 20px 32px;
+    max-width: 335px;
+  }
+
+  .close {
+    right: 8px;
+    top: 8px;
+  }
+
+  .logo {
+    margin: 0 auto 32px;
+  }
+}
